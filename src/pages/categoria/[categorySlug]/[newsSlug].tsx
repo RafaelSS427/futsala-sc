@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Typography, capitalize } from '@mui/material'
 
 import { ClientLayout } from '@/components'
+import { getAllNewsBySlugXCategory } from '@/database'
 
 interface Props {
     slug: string
@@ -19,15 +20,13 @@ const NewsSlugPage: NextPage<Props> = ({ slug }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
+
+    const paths = getAllNewsBySlugXCategory().map(e => ({
+        params: { categorySlug: e.categoryName, newsSlug: e.newsSlug }
+    }))
+
     return {
-        paths: [
-            {
-                params: {
-                    categorySlug: "baloncesto",
-                    newsSlug: "equipo-de-futbol-sala-gano"
-                }
-            }
-        ],
+        paths,
         fallback: false
     }
 }

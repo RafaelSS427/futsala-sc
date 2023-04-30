@@ -24,7 +24,7 @@ export const ClientLayout:FC<Props> = ({  children, title, description }) => {
                 <NavbarApp />
             </Box>
 
-            <Container maxWidth="md" component="main" sx={{ backgroundColor: "gray"}}>
+            <Container maxWidth="md" component="main">
                 { children }
             </Container>
 

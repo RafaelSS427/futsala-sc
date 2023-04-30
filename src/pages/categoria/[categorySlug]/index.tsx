@@ -1,7 +1,8 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Typography, capitalize } from '@mui/material'
 
-import { ClientLayout } from '@/components'
+import { ClientLayout, SectionTitle } from '@/components'
+import { getCategoriesByName } from '@/database'
 
 interface Props {
     slug: string
@@ -13,26 +14,19 @@ const CategorySlugPage: NextPage<Props> = ({ slug }) => {
             title={capitalize(slug)}
             description={`Resultados para la categoria de ${ slug }`}
         >
-            <Typography>{ slug }</Typography>
+            <SectionTitle title={ capitalize(slug) } />
         </ClientLayout>
     )
 }
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
+    const paths = getCategoriesByName().map(e => ({
+        params: { categorySlug: e }
+    }))
+
     return {
-        paths: [
-            {
-                params: {
-                    categorySlug: "baloncesto"
-                }
-            },
-            {
-                params: {
-                    categorySlug: "futbol"
-                }
-            },
-        ],
+        paths,
         fallback: false
     }
 }
