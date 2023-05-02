@@ -16,19 +16,19 @@ export const NavbarApp = () => {
   return (
     <AppBar component="nav" position="static" color="inherit" enableColorOnDark elevation={1}>
       <Toolbar>
-        <Box position="relative" width="60px" height="60px">
-          <NextLink href="/">
+        <NextLink href="/">
+          <Box position="relative" width="60px" height="60px">
             <NextImage
               src="/logo.jpg"
               alt="Logo de iniciativa Futsala SC"
               fill
+              sizes="(min-width: 768px) 100px, 50px"
               style={{
                 objectFit: "scale-down"
               }}
             />
-          </NextLink>
-
-        </Box>
+          </Box>
+        </NextLink>
 
         <Box display={{ xs: "none", sm: "flex" }} justifyContent="center" columnGap="10px" sx={{ flex: 1 }}>
           {
