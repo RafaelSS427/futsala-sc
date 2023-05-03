@@ -1,8 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Typography, capitalize } from '@mui/material'
+import { capitalize } from '@mui/material'
 
 import { ClientLayout, SectionTitle } from '@/components'
 import { getCategoriesByName } from '@/database'
+import { ListNewsSection } from '@/screens'
 
 interface Props {
     slug: string
@@ -15,6 +16,7 @@ const CategorySlugPage: NextPage<Props> = ({ slug }) => {
             description={`Resultados para la categoria de ${ slug }`}
         >
             <SectionTitle title={ capitalize(slug) } />
+            <ListNewsSection />
         </ClientLayout>
     )
 }

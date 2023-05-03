@@ -11,11 +11,11 @@ export const ListNewsCatSection: FC<Props> = ({ title }) => {
     <Box component="section" mt={6}>
       <SectionTitle title={title} />
 
-      <Grid container spacing={5}>
+      <Grid container spacing={5} mt="0px">
 
         {/* it is principal */}
         <Grid item xs={12} md={6}>
-          <NewsCard direction="column-reverse" showDivider isPriority />
+          <NewsCard direction="column-reverse" showDivider isPriority imgIsCover />
         </Grid>
 
         <Grid item xs={12} md={6}>
@@ -23,7 +23,6 @@ export const ListNewsCatSection: FC<Props> = ({ title }) => {
             position="relative"
             height="100%"
             direction="column"
-            justifyContent="space-between"
             pt={1}
             sx={(theme) => ({
               [theme.breakpoints.up("md")]: {
@@ -41,7 +40,9 @@ export const ListNewsCatSection: FC<Props> = ({ title }) => {
           >
             {
               Array.from(new Array(2)).map((item, i) => {
-                return <NewsCard key={i} showImage={false} showDivider={i !== 1} />
+                return <Box key={i} mb={4}>
+                  <NewsCard showImage={false} showDivider={i !== 1} />
+                </Box>
               })
             }
           </Stack>
