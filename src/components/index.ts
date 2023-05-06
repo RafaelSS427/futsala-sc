@@ -1,4 +1,6 @@
 export * from './ui'
 export * from './layouts'
 export * from './shared'
-export * from './home'
+export * from './icons'
+// export * from './home'
+

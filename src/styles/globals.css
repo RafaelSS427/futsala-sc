@@ -1,3 +1,5 @@
+@import "react-slideshow-image/dist/styles.css";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -11,4 +13,18 @@ nav a:hover {
 
 .body-color {
   color: #666666;
+}
+
+/* slide indicator styles */
+.indicator {
+  width: 7px;
+  height: 7px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  margin-inline: 2px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #3EC8C8;
 }

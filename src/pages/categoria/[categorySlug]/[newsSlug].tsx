@@ -1,8 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { Typography, capitalize } from '@mui/material'
+import { Box, capitalize } from '@mui/material'
 
-import { ClientLayout } from '@/components'
+
+import { ClientLayout, DividerApp } from '@/components'
 import { getAllNewsBySlugXCategory } from '@/database'
+import { DetailNewsSection, HeroNewsSection, LastestNewsSection } from '@/screens'
 
 interface Props {
     slug: string
@@ -12,9 +14,16 @@ const NewsSlugPage: NextPage<Props> = ({ slug }) => {
     return (
         <ClientLayout
             title={capitalize(slug)}
-            description={`Acá irá la descripción de la noticia que viene desde el objeto ${ slug }`}
+            description={`Acá irá la descripción de la noticia que viene desde el objeto ${slug}`}
         >
-            <Typography>{ slug }</Typography>
+            <HeroNewsSection
+                images={['https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080', 'https://picsum.photos/800/800']}
+            />
+            <Box my={3}>
+                <DividerApp />
+            </Box>
+            <DetailNewsSection />
+            <LastestNewsSection />
         </ClientLayout>
     )
 }

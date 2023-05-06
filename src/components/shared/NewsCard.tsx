@@ -3,6 +3,7 @@ import NextLink from 'next/link'
 
 import { Grid, Stack, Typography, Avatar, Chip, Box, Divider } from "@mui/material"
 import { FC } from 'react';
+import { AvatarApp } from '../ui';
 
 interface Props {
     showImage?: boolean;
@@ -11,9 +12,10 @@ interface Props {
     direction?: 'row' | 'column-reverse';
     showDivider?: boolean;
     imgIsCover?: boolean;
+    isDetail?: boolean;
 }
 
-export const NewsCard: FC<Props> = ({ direction = 'row', isPriority = false, showImage = true, showTag = false, showDivider = false, imgIsCover = false }) => {
+export const NewsCard: FC<Props> = ({ direction = 'row', isPriority = false, showImage = true, showTag = false, showDivider = false, imgIsCover = false, isDetail = false }) => {
     return (
         <>
             <Grid container spacing={2} flexDirection={direction}>
@@ -27,6 +29,7 @@ export const NewsCard: FC<Props> = ({ direction = 'row', isPriority = false, sho
                                 variant="h6"
                                 fontWeight={700}
                                 component="h1"
+                                fontSize={isDetail ? "16px" : "20px"}
                                 sx={{
                                     lineHeight: 1.5,
                                 }}
@@ -36,17 +39,15 @@ export const NewsCard: FC<Props> = ({ direction = 'row', isPriority = false, sho
 
                         </NextLink>
 
-                        <Stack direction="row" columnGap={1}>
-                            <Avatar alt="Rafael Sequeira" src="/avatar-development-mode.jpg" />
-                            <Stack>
-                                <Typography className='body-color' variant='caption'>Rafael Sequeira</Typography>
-                                <Typography className='body-color' variant='button' fontSize={10}>22/04/2023 17:02</Typography>
-                            </Stack>
-                        </Stack>
+                        <AvatarApp fullName="Rafael Sequeira" date="22/04/2023 17:02" photoUrl="/avatar-development-mode.jpg" />
 
-                        <Typography className='body-color' variant='body1'>
-                            Lorem ipsum dolor sit amet consectetur. Tempor et convallis arcu sagittis amet tempor pretium egestas porttitor. Molestie consequat ac dolor pulvinar fermentum non.
-                        </Typography>
+                        {
+                            !isDetail && (
+                                <Typography className='body-color' variant='body1'>
+                                    Lorem ipsum dolor sit amet consectetur. Tempor et convallis arcu sagittis amet tempor pretium egestas porttitor. Molestie consequat ac dolor pulvinar fermentum non.
+                                </Typography>
+                            )
+                        }
 
                         {
                             showTag && (
