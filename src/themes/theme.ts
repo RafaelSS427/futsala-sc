@@ -11,8 +11,8 @@ export const ptSerif = PT_Serif({
 
 export const theme = createTheme({
     palette: {
-        primary: {
-            main: orange[500] // this is a test color
+        secondary: {
+            main: "#3EC8C8"
         }
     },
     typography: {
