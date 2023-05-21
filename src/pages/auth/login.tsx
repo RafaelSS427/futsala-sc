@@ -37,13 +37,14 @@ const LoginPage: NextPage = () => {
 
                         <Stack spacing={0.5}>
                             <Stack direction="row" justifyContent="end">
-                                <LinkApp
-                                    href="/auth/forgot-password"
-                                    name="¿Olvidaste tu contraseña?"
+                                <LinkApp href="/auth/forgot-password"
                                     styles={{
-                                        color: "#1D4ED8"
+                                        // color: "#1D4ED8"
+                                        color: (theme) => theme.palette.info.main
                                     }}
-                                />
+                                >
+                                    ¿Olvidaste tu contraseña?
+                                </LinkApp>
                             </Stack>
                             <TextField
                                 fullWidth

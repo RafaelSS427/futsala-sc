@@ -41,11 +41,12 @@ export const NavbarApp = () => {
                 <LinkApp
                   key={`${name}-${i}`}
                   href={`/categoria/${name}`}
-                  name={capitalize(name)}
                   styles={{
                     textDecorationLine: "none"
                   }}
-                />
+                >
+                  { capitalize(name) }
+                </LinkApp>
               )
             })
           }
@@ -54,7 +55,9 @@ export const NavbarApp = () => {
         <Box display={{ xs: "flex", sm: "none" }} sx={{ flex: 1 }} />
 
         <Box>
-          <LinkApp href="/auth/login" name="Login" />
+          <LinkApp href="/auth/login">
+            Login
+          </LinkApp>
         </Box>
 
       </Toolbar>

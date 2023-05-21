@@ -32,6 +32,9 @@ export const NewsCard: FC<Props> = ({ direction = 'row', isPriority = false, sho
                                 fontSize={isDetail ? "16px" : "20px"}
                                 sx={{
                                     lineHeight: 1.5,
+                                    ":hover": {
+                                        textDecorationLine: "underline"
+                                    }
                                 }}
                             >
                                 El equipo de la sede jugó una triangular frente a educadoras y zoe´s

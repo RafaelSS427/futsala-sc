@@ -1,18 +1,17 @@
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import NextLink from 'next/link'
 import { Link, SxProps, Theme } from '@mui/material'
 
-interface Props {
+interface Props extends PropsWithChildren {
     href: string;
-    name: string;
     styles?:  SxProps<Theme>
 }
 
-export const LinkApp: FC<Props> = ({ href, name, styles }) => {
+export const LinkApp: FC<Props> = ({ children, href, styles }) => {
   return (
     <NextLink href={ href } passHref legacyBehavior>
         <Link color="inherit" sx={styles}>
-            { name }
+            { children }
         </Link>
     </NextLink>
   )

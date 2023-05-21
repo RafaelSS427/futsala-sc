@@ -11,6 +11,9 @@ export const ptSerif = PT_Serif({
 
 export const theme = createTheme({
     palette: {
+        primary: {
+            main: "#0ABF25"
+        },
         secondary: {
             main: "#3EC8C8"
         }
