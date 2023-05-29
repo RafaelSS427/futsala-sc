@@ -6,8 +6,11 @@ import { AppBar, Box, Toolbar, capitalize } from '@mui/material'
 import { LinkApp } from './LinkApp'
 import { getPipeLinks } from '@/utils'
 import { getCategoriesByName } from '@/database'
+import { useAuthStore } from '@/store'
+import { MenuAdmin } from '../admin'
 
 export const NavbarApp = () => {
+  const isLogin = useAuthStore(store => store.isLogin)
 
   const testLinks = getCategoriesByName()
 
@@ -45,7 +48,7 @@ export const NavbarApp = () => {
                     textDecorationLine: "none"
                   }}
                 >
-                  { capitalize(name) }
+                  {capitalize(name)}
                 </LinkApp>
               )
             })
@@ -55,9 +58,15 @@ export const NavbarApp = () => {
         <Box display={{ xs: "flex", sm: "none" }} sx={{ flex: 1 }} />
 
         <Box>
-          <LinkApp href="/auth/login">
-            Login
-          </LinkApp>
+          {
+            isLogin ? (
+              <MenuAdmin />
+            ) : (
+              <LinkApp href="/auth/login">
+                Login
+              </LinkApp>
+            )
+          }
         </Box>
 
       </Toolbar>

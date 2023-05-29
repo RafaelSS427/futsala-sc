@@ -5,8 +5,17 @@ import NextLink from 'next/link'
 import { Box, Button, Container, Link, Stack, TextField, Typography } from '@mui/material'
 
 import { AuthLayout, LinkApp } from '@/components'
+import { FormEvent } from 'react'
+import { signIn } from 'next-auth/react'
 
 const LoginPage: NextPage = () => {
+
+    const onSubmitForm = async(e:FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        await signIn('credentials', { email: "Rafaelss427@gmail.com", password: 'test-password', callbackUrl: '/admin' })
+    }
+
     return (
         <AuthLayout title="Log In">
             <Stack height="100%" spacing={2} alignItems="center" justifyContent="center">
@@ -26,7 +35,7 @@ const LoginPage: NextPage = () => {
                 </NextLink>
 
                 <Container maxWidth="xs">
-                    <Stack spacing={2}>
+                    <Stack spacing={2} component="form" onSubmit={onSubmitForm}>
                         <Typography variant="h5" fontWeight={700} mb={0.5}>Ingresa tus crendeciales</Typography>
                         <TextField
                             fullWidth
@@ -55,7 +64,7 @@ const LoginPage: NextPage = () => {
                             />
                         </Stack>
 
-                        <Button variant="outlined" color="secondary">
+                        <Button variant="outlined" color="secondary" type="submit">
                             Log In
                         </Button>
                     </Stack>

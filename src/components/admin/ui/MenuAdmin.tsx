@@ -1,6 +1,8 @@
 import { useState, MouseEvent } from 'react'
+import Cookies from 'js-cookie'
 import { PersonAdd, Settings, Logout, KeyboardArrowDownOutlined, KeyboardArrowUpOutlined } from '@mui/icons-material'
 import { Avatar, Menu, MenuItem, Divider, ListItemIcon, Stack, Button } from '@mui/material'
+import { signOut } from 'next-auth/react'
 
 
 export const MenuAdmin = () => {
@@ -13,6 +15,11 @@ export const MenuAdmin = () => {
 
     const handleClose = () => {
         setAnchorEl(null)
+    }
+
+    const logout = () => {
+        Cookies.remove('access_token')
+        signOut({ callbackUrl: '/auth/login' })
     }
 
     return (
@@ -85,7 +92,7 @@ export const MenuAdmin = () => {
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={logout}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>

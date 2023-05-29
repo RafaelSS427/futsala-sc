@@ -4,8 +4,8 @@
   - Rename the file called __.env.template__ to .__env__ or create a new file called __.env__ with the information wich is in __.env.template__
   - Add the corresponding values
     ```
-    NEXT_PUBLIC_SUPABASE_URL=https://<project>.supabase.co
-    NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-anon-key>
+    NEXTAUTH_SECRET=<your-password>
+    NEXTAUTH_URL=<your-url>
     ```
     
 - Rebuild the node modules
