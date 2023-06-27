@@ -1,5 +1,5 @@
 
-export const ArrowRight = () => (
+export const ArrowRightSVG = () => (
     <svg
         width="25px"
         height="25px"

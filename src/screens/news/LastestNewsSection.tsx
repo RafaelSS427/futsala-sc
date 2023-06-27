@@ -15,7 +15,7 @@ export const LastestNewsSection: FC<Props> = () => {
                 {
                     [1, 2, 3].map((news, i) => (
                         <Grid item xs={12} sm={4} key={i}>
-                            <NewsCard direction="column-reverse" imgIsCover isDetail />
+                            <NewsCard direction="column-reverse" imgIsCover isDetail showDivider />
                         </Grid>
                     ))
                 }

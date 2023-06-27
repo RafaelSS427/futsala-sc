@@ -1,2 +1,2 @@
-export * from './ArrowLeft'
-export * from './ArrowRight'
+export * from './ArrowLeftSVG'
+export * from './ArrowRightSVG'

@@ -1,41 +1,22 @@
-
-import { AppBar, Toolbar, Box, FormControl, OutlinedInput, Stack } from '@mui/material'
+import { AppBar, Toolbar, Box } from '@mui/material'
 import { MenuAdmin } from './MenuAdmin'
-import { HomeOutlined } from '@mui/icons-material'
+import { NavbarOptions } from '../components'
 
-import { LinkApp } from '@/components'
-
-export const NavbarAdmin = () => {
+export const NavbarAdmin = () => {    
     return (
         <>
             <AppBar component="nav" position="fixed" color="inherit" enableColorOnDark elevation={1}>
                 <Toolbar>
-                    <Box display={{ xs: "none", sm: "block" }}>
-                        <FormControl color="info" sx={{ width: { xs: "25ch", sm: "35ch" } }}>
-                            <OutlinedInput placeholder="Buscar" sx={{ height: "40px" }} />
-                        </FormControl>
-                    </Box>
+                    <NavbarOptions />
 
-                    <Box display={{ xs: "none", sm: "block" }} sx={{ flex: 1 }} />
-
-                    <Stack direction="row" spacing={1} mr={3}>
-                        <HomeOutlined color="info" />
-                        <LinkApp href={`/`}
-                            styles={{
-                                color: (theme) => theme.palette.info.main
-                            }}
-                        >
-                            Ir al inicio
-                        </LinkApp>
-                    </Stack>
                     <Box display={{ xs: "block", sm: "none" }} sx={{ flex: 1 }} />
 
-                    <Box display="flex" alignItems="center" pl={{ xs: "10px", sm: "40px" }} sx={{ borderLeft: "1px solid #666" }} height="64px">
+                    <Box display="flex" justifyContent="center" alignItems="center" pl={{ xs: "16px", sm: "24px" }} sx={{ borderLeft: "1px solid #666" }} height="64px">
                         <MenuAdmin />
                     </Box>
 
                 </Toolbar>
-            </AppBar>
+            </AppBar >
             <Box height="64px" />
         </>
     )

@@ -1,1 +1,2 @@
-export * from './initSupabase'
+export * from './constants'
+export * from './slate'

@@ -1,6 +1,8 @@
 import { useState, MouseEvent } from 'react'
+import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
-import { PersonAdd, Settings, Logout, KeyboardArrowDownOutlined, KeyboardArrowUpOutlined } from '@mui/icons-material'
+
+import { PersonAdd, Settings, Logout, KeyboardArrowDownOutlined, KeyboardArrowUpOutlined, AdminPanelSettings, AdminPanelSettingsOutlined, CreateOutlined, NewspaperOutlined, AddOutlined } from '@mui/icons-material'
 import { Avatar, Menu, MenuItem, Divider, ListItemIcon, Stack, Button } from '@mui/material'
 import { signOut } from 'next-auth/react'
 
@@ -8,6 +10,7 @@ import { signOut } from 'next-auth/react'
 export const MenuAdmin = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
+    const router = useRouter()
 
     const handleClick = (event: MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget)
@@ -73,25 +76,57 @@ export const MenuAdmin = () => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>
                     <Avatar /> Profile
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={handleClose}>
-                    <Avatar /> My account
+                    <Avatar /> Mi perfil
                 </MenuItem>
                 <Divider />
+
+                <MenuItem onClick={() => {
+                    router.push('/admin')
+                    handleClose()
+                }}>
+                    <ListItemIcon>
+                        <AdminPanelSettingsOutlined fontSize="small" />
+                    </ListItemIcon>
+                    Dashboard
+                </MenuItem>
+
+                <MenuItem onClick={() => {
+                    alert('A modal should be shown in this part')
+                    handleClose()
+                }}>
+                    <ListItemIcon>
+                        <AddOutlined fontSize="small" />
+                    </ListItemIcon>
+                    Nueva categoría
+                </MenuItem>
+
+                <MenuItem onClick={() => {
+                    router.push('/admin/create')
+                    handleClose()
+                }}>
+                    <ListItemIcon>
+                        <NewspaperOutlined fontSize="small" />
+                    </ListItemIcon>
+                    Nueva noticia
+                </MenuItem>
+                <Divider />
+
                 <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <PersonAdd fontSize="small" />
                     </ListItemIcon>
-                    Add another account
+                    Agregar nuevo usuario
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
                     Settings
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={logout}>
                     <ListItemIcon>
                         <Logout fontSize="small" />

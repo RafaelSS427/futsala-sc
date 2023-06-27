@@ -13,22 +13,30 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.2",
-    "@supabase/supabase-js": "^2.21.0",
     "@types/node": "18.16.1",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
+    "@types/react-transition-group": "^4.4.6",
+    "embla-carousel-autoplay": "8.0.0-rc07",
+    "embla-carousel-react": "8.0.0-rc06",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
+    "is-hotkey": "^0.2.0",
     "js-cookie": "^3.0.5",
     "next": "13.3.1",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-slideshow-image": "^4.2.1",
+    "react-hook-form": "^7.44.3",
+    "react-transition-group": "^4.4.5",
+    "slate": "^0.94.1",
+    "slate-history": "^0.93.0",
+    "slate-react": "^0.95.0",
     "typescript": "5.0.4",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@types/is-hotkey": "^0.1.7",
     "@types/js-cookie": "^3.0.3"
   }
 }

@@ -16,7 +16,7 @@ export const NewsListSection:FC<Props> = ({ news = [1, 2, 3, 4] }) => {
             <Grid container spacing={2} mt={1}>
                 {
                     news.map((news, i) => (
-                        <Grid item xs={12} sm={4} md={3} key={i}>
+                        <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                             <NewsCard direction="column-reverse" imgIsCover isDetail showDivider />
                         </Grid>
                     ))

@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import NextImage from 'next/image'
 import NextLink from 'next/link'
-import { AppBar, Box, Toolbar, capitalize } from '@mui/material'
+import { AppBar, Box, CircularProgress, Skeleton, Stack, Toolbar, capitalize } from '@mui/material'
 
 import { LinkApp } from './LinkApp'
 import { getPipeLinks } from '@/utils'
@@ -11,6 +11,7 @@ import { MenuAdmin } from '../admin'
 
 export const NavbarApp = () => {
   const isLogin = useAuthStore(store => store.isLogin)
+  const loading = useAuthStore(store => store.loading)
 
   const testLinks = getCategoriesByName()
 
@@ -59,6 +60,11 @@ export const NavbarApp = () => {
 
         <Box>
           {
+            loading ? (
+              <Stack width="60px" height="44px" alignItems="center" justifyContent="center">
+                <CircularProgress color="primary" size={24} />
+              </Stack>
+            ) :
             isLogin ? (
               <MenuAdmin />
             ) : (

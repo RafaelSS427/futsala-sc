@@ -1,8 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { Box, capitalize } from '@mui/material'
 
-
-import { ClientLayout, DividerApp } from '@/components'
+import { Carousel, ClientLayout, DividerApp } from '@/components'
 import { getAllNewsBySlugXCategory } from '@/database'
 import { DetailNewsSection, HeroNewsSection, LastestNewsSection } from '@/screens'
 
@@ -16,9 +15,15 @@ const NewsSlugPage: NextPage<Props> = ({ slug }) => {
             title={capitalize(slug)}
             description={`Acá irá la descripción de la noticia que viene desde el objeto ${slug}`}
         >
-            <HeroNewsSection
-                images={['https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080', 'https://picsum.photos/800/800']}
-            />
+            <HeroNewsSection>
+                <Carousel
+                    slides={['https://picsum.photos/1920/1080', 'https://picsum.photos/1920/1080', 'https://picsum.photos/800/800']}
+                    options={{
+                        loop: true
+                    }}
+                />
+            </HeroNewsSection>
+
             <Box my={3}>
                 <DividerApp />
             </Box>
