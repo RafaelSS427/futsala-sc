@@ -1,5 +1,10 @@
+// import { FormDataNews } from "@/interfaces"
 import { useCallback, useState } from "react"
-
+// import { UseFormGetValues, UseFormSetValue } from "react-hook-form"
+// interface HookProps {
+//     setValue: UseFormSetValue<Pick<FormDataNews, 'files'>>,
+//     getValues: UseFormGetValues<Pick<FormDataNews, 'files'>>
+// }
 
 export const useInputFile = () => {
     const [files, setFiles] = useState<File[]>([])

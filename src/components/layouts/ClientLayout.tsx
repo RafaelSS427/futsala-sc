@@ -9,6 +9,7 @@ interface Props extends PropsWithChildren {
     description: string
 }
 
+// TODO: Add SEO
 export const ClientLayout:FC<Props> = ({  children, title, description }) => {
     return (
         <>

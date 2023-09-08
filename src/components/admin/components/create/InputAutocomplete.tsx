@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Autocomplete, CircularProgress, TextField } from '@mui/material'
-import { useFormContext } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
 import { FormDataNews } from '@/interfaces'
 
 interface Category {

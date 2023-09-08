@@ -11,6 +11,9 @@ import { RenderLeaf } from './RenderLeaf'
 import { toggleMark } from '@/lib/slate'
 import { HOTKEYS } from '@/lib'
 
+
+// TODO: Add padding in the textarea
+// TODO: Move the editor value to a global state
 export const SlateApp = () => {
     const editor = useMemo(() => withHistory(withReact(createEditor())), [])
     const renderElement = useCallback((props: RenderElementProps) => <RenderElement {...props} />, [])

@@ -7,6 +7,8 @@ import { useInputFile } from '@/hooks'
 import { FormDataNews } from '@/interfaces'
 
 // TODO: The rule of 'minLength' should be added to the properties form
+// TODO: Add the necesary rules to the form
+// TODO: Make onSubmit funcional
 const CreateNewsPage: NextPage = () => {
 
     const methods = useForm<FormDataNews>({
@@ -19,7 +21,7 @@ const CreateNewsPage: NextPage = () => {
         }
     })
 
-    const { register, formState: { errors }, handleSubmit, reset } = methods
+    const { register, formState: { errors }, handleSubmit, reset, control, setValue, getValues } = methods
 
     const { files, getCurrentFilesTitle, removeFile, setFiles } = useInputFile()
 
